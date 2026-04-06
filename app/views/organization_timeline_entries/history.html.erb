@@ -21,7 +21,7 @@
           <% @entries.each do |entry| %>
             <tr>
               <td
-                ><%= link_to entry.organization.short_name, entry.organization %></td
+                ><%= link_to entry.organization.short_name, entry.organization if entry.organization %></td
               >
               <td><%= entry.entry_type.humanize %></td>
               <td><%= h entry.description %></td>
