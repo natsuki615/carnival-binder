@@ -90,7 +90,7 @@ class ScissorLiftCheckout < ApplicationRecord
       scissor_lift_id:,
       organization:,
       participant:,
-      due_at: 4.hours.from_now
+      due_at: 2.hours.from_now
     )
   end
   private_class_method :attempt_checkout
