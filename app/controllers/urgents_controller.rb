@@ -4,7 +4,12 @@ class UrgentsController < ApplicationController
   load_and_authorize_resource except: %i[index archived]
 
   def index
-    @urgents = Urgent.accessible_by(Current.ability).active.unhidden.ordered_by_created_at
+    @urgents =
+      Urgent
+        .accessible_by(Current.ability)
+        .active
+        .unhidden
+        .ordered_by_created_at
   end
 
   def show
@@ -53,7 +58,8 @@ class UrgentsController < ApplicationController
   end
 
   def archived
-    @urgents = Urgent.accessible_by(Current.ability).archived.ordered_by_created_at
+    @urgents =
+      Urgent.accessible_by(Current.ability).archived.ordered_by_created_at
   end
 
   private

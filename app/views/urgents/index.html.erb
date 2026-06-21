@@ -7,7 +7,9 @@
     <div class="title-row">
       <h1>Urgent Announcements</h1>
       <div>
-        <%= link_to 'New Announcement', new_urgent_path, class: 'cta-button' if can?(:create, Urgent) %>
+        <%= if can?(:create, Urgent)
+              link_to 'New Announcement', new_urgent_path, class: 'cta-button'
+            end %>
         <%= link_to 'See Archived', archived_urgents_path, class: 'cta' %>
       </div>
     </div>
@@ -17,7 +19,7 @@
         <%= render 'urgent', urgent: urgent %>
       <% end %>
     <% else %>
-      <p>No active urgent announcements.</p>
+      <p class="urgent-p">No active urgent announcements.</p>
     <% end %>
   </div>
 </div>

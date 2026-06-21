@@ -1,5 +1,7 @@
 <% update_document_title(add: @urgent.title) %>
-<% update_breadcrumbs(add: link_to('Urgent Announcements', urgents_path), add: @urgent.title) %>
+<% update_breadcrumbs(
+     add: [link_to('Urgent Announcements', urgents_path), @urgent.title]
+   ) %>
 <% nav %>
 <% content_for :head do %>
   <%= stylesheet_link_tag('notes', 'data-turbo-track': 'reload') %>
@@ -17,7 +19,10 @@
   <% if can?(:archive, @urgent) %>
     <%= link_to 'Archive',
                 archive_urgent_path(@urgent),
-                data: { turbo_method: :patch, turbo_confirm: 'Archive this announcement?' },
+                data: {
+                  turbo_method: :patch,
+                  turbo_confirm: 'Archive this announcement?'
+                },
                 class: 'cta' %>
   <% end %>
   <%= link_to 'Back to Announcements', urgents_path, class: 'cta' %>

@@ -292,6 +292,9 @@ li.tab {
   padding: 0;
 }
 
+.urgent-p {
+  margin: 1em;
+}
 .urgent-cards-scroll {
   max-height: 10em;
   overflow-y: auto;

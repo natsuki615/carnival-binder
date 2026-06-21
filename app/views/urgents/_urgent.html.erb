@@ -11,7 +11,10 @@
       <% if can?(:archive, urgent) %>
         <%= link_to 'Archive',
                     archive_urgent_path(urgent),
-                    data: { turbo_method: :patch, turbo_confirm: 'Archive this announcement?' },
+                    data: {
+                      turbo_method: :patch,
+                      turbo_confirm: 'Archive this announcement?'
+                    },
                     class: 'btn-small' %>
       <% end %>
     </div>

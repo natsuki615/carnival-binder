@@ -4,6 +4,8 @@ class WelcomeController < ApplicationController
   def index
     @notes = Note.accessible_by(Current.ability).unhidden
     @note = Note.new
-    @urgents = Urgent.active.unhidden.ordered_by_created_at if Current.user&.scc?
+    return unless Current.user&.scc?
+
+    @urgents = Urgent.active.unhidden.ordered_by_created_at
   end
 end
