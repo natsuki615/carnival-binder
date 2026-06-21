@@ -399,3 +399,119 @@ li.tab {
   color: #666;
   margin: 0;
 }
+
+/* Electrical / Structural queue widget on landing page */
+.queue-widget {
+  margin: 1.5em 0;
+  background-color: #fffae6;
+}
+
+.queue-widget__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 1em 1.25em;
+}
+
+.queue-widget__header h1 {
+  margin: 0;
+  font-size: 1.4em;
+}
+
+.queue-widget__tabs {
+  display: flex;
+  gap: 0.5em;
+}
+
+/* without this, the two buttons somehow look different even though
+   they both have "btn small" applied */
+.queue-widget__tabs .queue-widget__tab {
+  margin: 0;
+  padding: 0.4em 0.9em;
+  border: 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.35);
+  line-height: 1.15;
+  font-size: 1em;
+  background: #6d6e71;
+  color: #fff;
+}
+
+.queue-widget__tabs .queue-widget__tab.is-active {
+  background: #c41230;
+}
+
+.queue-flow {
+  display: flex;
+  align-items: stretch;
+  overflow-x: auto;
+  padding: 1em 1.25em;
+}
+
+/* the `hidden` attribute must win over display:flex. */
+.queue-flow[hidden] {
+  display: none;
+}
+
+/* The arrow shape to show progress:
+   a block with a pointed left edge and a matching
+   notch cut out of its right edge, so consecutive blocks interlock. */
+.queue-chevron {
+  --notch: 22px;
+  flex: 1 0 8.5em;
+  min-height: 5.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25em;
+  text-align: center;
+  padding: 0.6em 2em;
+  background: #e4e4e4;
+  margin-left: calc(var(--notch) * -1 + 3px);
+  clip-path: polygon(
+    var(--notch) 0,
+    100% 0,
+    calc(100% - var(--notch)) 50%,
+    100% 100%,
+    var(--notch) 100%,
+    0 50%
+  );
+}
+
+/* first in line */
+.queue-chevron:first-child {
+  margin-left: 0;
+  padding-left: 1.2em;
+  background: #fdb515;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    calc(100% - var(--notch)) 50%,
+    100% 100%,
+    0 100%
+  );
+}
+
+.queue-chevron--placeholder {
+  background: transparent;
+  border: 1px dashed #bbb;
+  color: #999;
+}
+
+.queue-chevron__status {
+  font-size: 0.8em;
+  color: #555;
+  line-height: 1.2;
+}
+
+.queue-chevron__org {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.queue-flow__empty {
+  color: #999;
+  font-style: italic;
+}

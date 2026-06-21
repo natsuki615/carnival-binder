@@ -3,7 +3,7 @@
     <h2>Important</h2>
     <%# only SCC staff can post new announcements %>
     <% if can?(:create, Urgent) %>
-      <%= link_to 'new urgent announcement', new_urgent_path, class: 'btn' %>
+      <%= link_to 'New Urgent Announcement', new_urgent_path, class: 'btn small' %>
     <% end %>
   </div>
 
